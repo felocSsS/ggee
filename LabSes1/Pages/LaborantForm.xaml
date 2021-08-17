@@ -1,0 +1,63 @@
+﻿<Page x:Class="LabSes1.Pages.LaborantForm"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:LabSes1.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="LaborantForm">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="4*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Image
+            Source="/Images/laborant_1.jpeg"/> 
+        <TextBlock Grid.Column="1"
+                   Height="40"
+                   Width="350"
+                   Text="Имя"
+                   FontSize="20"
+                   Name="TbName"
+                   Margin="0 0 250 0"/>
+        <Button HorizontalAlignment="Right"
+                Style="{StaticResource Btn}"
+                Width="120"
+                Height="35"
+                Content="Назад"
+                FontSize="20"
+                Margin="0 0 20 60"
+                Grid.Column="1"
+                Name="BtnBack"
+                Click="BtnBack_Click"/>
+        <Button Grid.Column="1"
+                Grid.Row="3"
+                Height="35"
+                Width="200"
+                Content="Сделать заказ"
+                Style="{StaticResource Btn}"
+                Margin="400 0 0 0"
+                FontSize="20"
+                Background="#498C51"
+                Name="BtnMakeOrder"
+                Click="BtnMakeOrder_Click"/>
+        <Button Grid.Column="1"
+                Grid.Row="3"
+                Height="35"
+                Width="245"
+                Content="Использовать анализатор"
+                Style="{StaticResource Btn}"
+                Margin="0 0 50 0"
+                FontSize="20"
+                Background="#498C51"
+                Name="BtnUseAnalyzer"
+                Click="BtnUseAnalyzer_Click"/>
+    </Grid>
+</Page>

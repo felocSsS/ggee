@@ -1,0 +1,129 @@
+﻿<Page x:Class="LabSes1.Pages.PageAddPacient"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:LabSes1.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="400"
+      Title="PageAddPacient"
+      xmlns:extensions="using:Microsoft.Toolkit.Uwp.UI.Extensions">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="80"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0"
+              Width="350"
+              Height="300"
+              VerticalAlignment="Top"
+              Margin="0 20 0 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Height="25"
+                       Text="ФИО: "
+                       TextAlignment="Right"
+                       FontSize="18"/>
+            <TextBlock Height="25"
+                       Text="Дата рождения: "
+                       TextAlignment="Right"
+                       FontSize="18"
+                       Grid.Column="0"
+                       Grid.Row="1"/>
+            <TextBlock Height="25"
+                       Text="Паспорт:   "
+                       TextAlignment="Right"
+                       FontSize="18"
+                       Grid.Column="0"
+                       Grid.Row="2"/>
+            <TextBlock Height="25"
+                       Text="Телефон: "
+                       TextAlignment="Right"
+                       FontSize="18"
+                       Grid.Column="0"
+                       Grid.Row="3"/>
+            <TextBlock Height="25"
+                       Text="Email: "
+                       TextAlignment="Right"
+                       FontSize="18"
+                       Grid.Column="0"
+                       Grid.Row="4"/>
+            <TextBlock Height="25"
+                       Text="Номер страхования:   "
+                       TextAlignment="Right"
+                       FontSize="15"
+                       Grid.Column="0"
+                       Grid.Row="5"/>
+            <TextBox Grid.Column="1"
+                     Grid.Row="0"
+                     Height="25"
+                     Width="180"
+                     Name="tbName"
+                     FontSize="16"/>
+            <TextBox Grid.Column="1"
+                     Grid.Row="1"
+                     Height="25"
+                     Width="180"
+                     Name="tbAge"
+                     FontSize="16"/>
+            <TextBox Grid.Column="1"
+                     Grid.Row="2"
+                     Height="25"
+                     Width="180"
+                     Name="tbPassport"
+                     FontSize="16"/>
+            <TextBox Grid.Column="1"
+                     Grid.Row="4"
+                     Height="25"
+                     Width="180"
+                     Name="tbEmail"
+                     FontSize="16"/>
+            <TextBox Grid.Column="1"
+                     Grid.Row="5"
+                     Height="25"
+                     Width="180"
+                     Name="tbNumberStrazovania"
+                     FontSize="16"/>
+            <TextBox Grid.Column="1"
+                     Grid.Row="3"
+                     Height="25"
+                     Width="180"
+                     Name="tbPhone"
+                     FontSize="16"/>
+        </Grid>
+        <Grid Grid.Row="2"
+              Height="80"
+              Width="300">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Button Background="DodgerBlue"
+                    Height="40"
+                    Width="130"
+                    Content="Сохранить"
+                    Name="btnSave"
+                    Click="btnSave_Click"
+                    Style="{StaticResource Btn}"/>
+            <Button Background="Red"
+                    Height="40"
+                    Width="130"
+                    Content="Назад"
+                    Grid.Column="1"
+                    Name="btnback"
+                    Click="btnback_Click"
+                    Style="{StaticResource Btn}"/>
+        </Grid>
+    </Grid>
+</Page>

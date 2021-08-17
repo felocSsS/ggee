@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="507584d0a93e4ef8b44cac0649ea5001" Name="Diagram1">
+        <EntityTypeShape EntityType="LabSes1Model.Activity" Width="1.5" PointX="5.75" PointY="4.75" />
+        <EntityTypeShape EntityType="LabSes1Model.Order" Width="1.5" PointX="5.25" PointY="1.375" />
+        <EntityTypeShape EntityType="LabSes1Model.Patient" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="LabSes1Model.Service" Width="1.5" PointX="3" PointY="9.25" />
+        <EntityTypeShape EntityType="LabSes1Model.sysdiagrams" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="LabSes1Model.TypeOfInsuranceNumber" Width="1.5" PointX="0.75" PointY="1.875" />
+        <EntityTypeShape EntityType="LabSes1Model.User" Width="1.5" PointX="3" PointY="6" />
+        <AssociationConnector Association="LabSes1Model.FK_Order_Patient" />
+        <AssociationConnector Association="LabSes1Model.FK_Order_Service" />
+        <AssociationConnector Association="LabSes1Model.FK_Order_User" />
+        <AssociationConnector Association="LabSes1Model.FK_Patient_TypeOfInsuranceNumber" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

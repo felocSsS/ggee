@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LabSes1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Activity" EntityType="LabSes1Model.Activity" />
+    <EntitySet Name="Order" EntityType="LabSes1Model.Order" />
+    <EntitySet Name="Patient" EntityType="LabSes1Model.Patient" />
+    <EntitySet Name="Service" EntityType="LabSes1Model.Service" />
+    <EntitySet Name="sysdiagrams" EntityType="LabSes1Model.sysdiagrams" />
+    <EntitySet Name="TypeOfInsuranceNumber" EntityType="LabSes1Model.TypeOfInsuranceNumber" />
+    <EntitySet Name="User" EntityType="LabSes1Model.User" />
+    <AssociationSet Name="FK_Order_Patient" Association="LabSes1Model.FK_Order_Patient">
+      <End Role="Patient" EntitySet="Patient" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Service" Association="LabSes1Model.FK_Order_Service">
+      <End Role="Service" EntitySet="Service" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_User" Association="LabSes1Model.FK_Order_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Patient_TypeOfInsuranceNumber" Association="LabSes1Model.FK_Patient_TypeOfInsuranceNumber">
+      <End Role="TypeOfInsuranceNumber" EntitySet="TypeOfInsuranceNumber" />
+      <End Role="Patient" EntitySet="Patient" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Activity">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TimeLogin" Type="DateTime" Precision="0" />
+    <Property Name="SuccessLogin" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdLaboratoryWorker" Type="Int32" />
+    <Property Name="IdPatient" Type="Int32" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="IdService" Type="Int32" />
+    <NavigationProperty Name="Patient" Relationship="LabSes1Model.FK_Order_Patient" FromRole="Order" ToRole="Patient" />
+    <NavigationProperty Name="Service" Relationship="LabSes1Model.FK_Order_Service" FromRole="Order" ToRole="Service" />
+    <NavigationProperty Name="User" Relationship="LabSes1Model.FK_Order_User" FromRole="Order" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Patient">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Birthday" Type="DateTime" Precision="0" />
+    <Property Name="Passport" Type="Int32" />
+    <Property Name="PhoneNumber" Type="Int32" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="InsuranceNumber" Type="Int32" />
+    <Property Name="IdTypeOfInsuranceNumber" Type="Int32" />
+    <NavigationProperty Name="Order" Relationship="LabSes1Model.FK_Order_Patient" FromRole="Patient" ToRole="Order" />
+    <NavigationProperty Name="TypeOfInsuranceNumber" Relationship="LabSes1Model.FK_Patient_TypeOfInsuranceNumber" FromRole="Patient" ToRole="TypeOfInsuranceNumber" />
+  </EntityType>
+  <EntityType Name="Service">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Int32" />
+    <Property Name="Deadline" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AverageDeviation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Order" Relationship="LabSes1Model.FK_Order_Service" FromRole="Service" ToRole="Order" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TypeOfInsuranceNumber">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Patient" Relationship="LabSes1Model.FK_Patient_TypeOfInsuranceNumber" FromRole="TypeOfInsuranceNumber" ToRole="Patient" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastLogin" Type="DateTime" Precision="0" />
+    <Property Name="RoleId" Type="Int32" />
+    <Property Name="Birthday" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Order" Relationship="LabSes1Model.FK_Order_User" FromRole="User" ToRole="Order" />
+  </EntityType>
+  <Association Name="FK_Order_Patient">
+    <End Type="LabSes1Model.Patient" Role="Patient" Multiplicity="0..1" />
+    <End Type="LabSes1Model.Order" Role="Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patient">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="IdPatient" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Service">
+    <End Type="LabSes1Model.Service" Role="Service" Multiplicity="0..1" />
+    <End Type="LabSes1Model.Order" Role="Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Service">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="IdService" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_User">
+    <End Type="LabSes1Model.User" Role="User" Multiplicity="0..1" />
+    <End Type="LabSes1Model.Order" Role="Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="IdLaboratoryWorker" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Patient_TypeOfInsuranceNumber">
+    <End Type="LabSes1Model.TypeOfInsuranceNumber" Role="TypeOfInsuranceNumber" Multiplicity="0..1" />
+    <End Type="LabSes1Model.Patient" Role="Patient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeOfInsuranceNumber">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Patient">
+        <PropertyRef Name="IdTypeOfInsuranceNumber" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
