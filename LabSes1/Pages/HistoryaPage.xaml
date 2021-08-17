@@ -30,11 +30,14 @@
                   IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Время авторизации" 
-                                    Width="1*"/>
+                                    Width="1*"
+                                    Binding="{Binding TimeLogin}"/>
                 <DataGridTextColumn Header="Логин" 
-                                    Width="1*"/>
+                                    Width="1*"
+                                    Binding="{Binding Login}"/>
                 <DataGridTextColumn Header="Удачный вход" 
-                                    Width="1*"/>
+                                    Width="1*"
+                                    Binding="{Binding SuccessLogin}"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

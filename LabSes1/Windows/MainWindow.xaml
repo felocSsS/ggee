@@ -12,7 +12,13 @@
             <RowDefinition Height="40"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-        <Button HorizontalAlignment="Right"
+        <Frame NavigationUIVisibility="Hidden"
+               Name="Frm"
+               Grid.Row="1"/>
+        <Grid Grid.Row="0"
+              MouseDown="Grid_MouseDown"
+              Background="Gray">
+            <Button HorizontalAlignment="Right"
                 VerticalAlignment="Center"
                 Height="30"
                 Width="30"
@@ -21,7 +27,7 @@
                 Name="BtnCloseApp"
                 Click="BtnCloseApp_Click"
                 Style="{StaticResource Btn}"/>
-        <Button HorizontalAlignment="Right"
+            <Button HorizontalAlignment="Right"
                 VerticalAlignment="Center"
                 Height="30"
                 Width="30"
@@ -30,8 +36,6 @@
                 Name="BtnHideApp"
                 Click="BtnHideApp_Click"
                 Style="{StaticResource Btn}"/>
-        <Frame NavigationUIVisibility="Hidden"
-               Name="Frm"
-               Grid.Row="1"/>
+        </Grid>
     </Grid>
 </Window>

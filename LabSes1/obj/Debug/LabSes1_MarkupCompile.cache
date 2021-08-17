@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\Programming\Lab\LabSes1\LabSes1\obj\Debug\
+D:\Programming\Lab\ggee\LabSes1\obj\Debug\
 LabSes1
 none
 false
 DEBUG;TRACE
-D:\Programming\Lab\LabSes1\LabSes1\App.xaml
+D:\Programming\Lab\ggee\LabSes1\App.xaml
 8-1967369058
 21097632036
-261069640672
-181139331422
+251912000039
+18-127961324
 Pages\barcode.xaml;Windows\MainWindow.xaml;Pages\HistoryaPage.xaml;Pages\LaborantForm.xaml;Pages\LoginPage.xaml;Pages\PageAddPacient.xaml;Pages\PageMakeOrder.xaml;Windows\MakeOrderWindow.xaml;
 
-True
+False
 

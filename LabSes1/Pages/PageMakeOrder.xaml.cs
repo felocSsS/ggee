@@ -1,18 +1,7 @@
 ﻿using LabSes1.Classes;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace LabSes1.Pages
 {
@@ -24,6 +13,13 @@ namespace LabSes1.Pages
         public PageMakeOrder()
         {
             InitializeComponent();
+            CmbName.SelectedValuePath = "Id";
+            CmbName.DisplayMemberPath = "Name";
+            CmbName.ItemsSource = DataBase.db.Patient.ToList();
+
+            CmbService.SelectedValuePath = "Id";
+            CmbService.DisplayMemberPath = "Name";
+            CmbService.ItemsSource = DataBase.db.Service.ToList();
         }
 
         private void AddPatient_Click(object sender, RoutedEventArgs e)
@@ -33,7 +29,15 @@ namespace LabSes1.Pages
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-
+            DB.Order order = new DB.Order()
+            {
+                IdLaboratoryWorker = (int)UserID.ID,
+                IdPatient = (int)CmbName.SelectedValue,
+                Status = false,
+                IdService = (int)CmbService.SelectedValue,
+            };
+            DataBase.db.Order.Add(order);
+            DataBase.db.SaveChanges();
         }
     }
 }

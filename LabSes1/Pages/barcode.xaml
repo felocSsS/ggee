@@ -12,8 +12,18 @@
         <Button
             Height="35"
             Width="150"
-            />
-        <TextBlock/>
-        <StackPanel/>
+            Click="BtnGenerateBarCode_Click"
+            Content="Сгенерировать штрихкод"
+            VerticalAlignment="Top"/>
+        <TextBox Height="25"
+                 Width="150"
+                 HorizontalAlignment="Left"
+                 VerticalAlignment="Top"
+                 Name="TbNumber"/>
+        <StackPanel Height="200"
+                    Width="300"
+                    Name="Sp"
+                    Orientation="Horizontal"
+                    />
     </Grid>
 </Page>

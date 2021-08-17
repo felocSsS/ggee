@@ -1,18 +1,7 @@
 ﻿using LabSes1.Classes;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace LabSes1.Pages
 {
@@ -35,7 +24,8 @@ namespace LabSes1.Pages
                 PhoneNumber = Convert.ToInt32(tbPhone.Text),
                 Email = tbEmail.Text,
                 InsuranceNumber = Convert.ToInt32(tbNumberStrazovania.Text),
-                IdTypeOfInsuranceNumber = 1
+                IdTypeOfInsuranceNumber = 1,
+                Birthday = Convert.ToDateTime(tbAge.Text)
             };
             try
             {
