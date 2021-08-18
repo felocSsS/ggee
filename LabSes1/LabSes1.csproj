@@ -108,6 +108,9 @@
     <Compile Include="Pages\PageAddPacient.xaml.cs">
       <DependentUpon>PageAddPacient.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\PageFindPatient.xaml.cs">
+      <DependentUpon>PageFindPatient.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\PageMakeOrder.xaml.cs">
       <DependentUpon>PageMakeOrder.xaml</DependentUpon>
     </Compile>
@@ -115,6 +118,10 @@
       <DependentUpon>MakeOrderWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="Pages\barcode.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PageFindPatient.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Documents;
 using System.Windows.Media;
 using System.Windows.Shapes;
 
@@ -13,7 +14,7 @@ namespace LabSes1.Pages
         public barcode()
         {
             InitializeComponent();
-            TbNumber.Text = "123456789012";
+            TbNumber.Text = "1234567890123";
         }
 
         private int[,] sets = new int[10, 2] { { 10001101, 10100111}, //0
@@ -27,50 +28,57 @@ namespace LabSes1.Pages
                                                 { 10110111, 10001001}, //8
                                                 { 10001011, 10010111} }; //9
 
-        private int[] StartAndEndРatch = new int[] {1, 0, 1};
+        private int[] StartAndEndРatch = new int[] {0, 1, 0, 1, 0};
 
         private void BtnGenerateBarCode_Click(object sender, RoutedEventArgs e)
         {
             Sp.Children.Clear();
+            SpNumbers.Children.Clear();
+
             string code = TbNumber.Text;
-            code = TbNumber.Text;
-            char[] codeInCharAMassiv = new char[12];
-            codeInCharAMassiv = code.ToCharArray(0, code.Length);
 
             for (int i = 0; i < 15; i++)
             {
-                GenerateBarCode(i, codeInCharAMassiv);
+                GenerateBarCode(i, code);
             }
         }
-        void GenerateBarCode(int step, char[] numbers)
+        void GenerateBarCode(int step, string numbers)
         {
             if (step == 0 || step == 7 || step == 14) //генерация начала, середины и конца штрих кода
             {
-                int number = 3;
-                int width = 2;
-                int height = 100;
+                int number = 5;
+
+                if(step < 13 && step != 7)
+                {
+                    TextBlock tb = new TextBlock()
+                    {
+                        FontSize = 12,
+                        Text = (numbers[step] - '0').ToString() + "    ",
+                        VerticalAlignment = VerticalAlignment.Bottom,
+                    };
+                    SpNumbers.Children.Add(tb);
+                }
+
+                if(step == 7)
+                {
+                    TextBlock tb = new TextBlock()
+                    {
+                        FontSize = 12,
+                        Text = " ",
+                        VerticalAlignment = VerticalAlignment.Bottom,
+                    };
+                    SpNumbers.Children.Add(tb);
+                }
 
                 for (int i = 0; i < number; i++)
                 {
                     if (StartAndEndРatch[i] == 1)
-                    {
-                        Rectangle rec = new Rectangle()
-                        {
-                            Width = width,
-                            Height = height,
-                            Fill = Brushes.Black,
-                        };
-                        Sp.Children.Add(rec);
+                    {                   
+                        rectangle(true, 0);
                     }
                     else
                     {
-                        Rectangle rec = new Rectangle()
-                        {
-                            Width = width,
-                            Height = height,
-                            Fill = Brushes.White,
-                        };
-                        Sp.Children.Add(rec);
+                        rectangle(false, 0);
                     }
                 }
             }
@@ -78,30 +86,27 @@ namespace LabSes1.Pages
             if (step > 0 && step < 7)
             {
                 int number = 7;
-                int width = 2;
-                int height = 100;
+
                 for (int i = 0; i < number; i++)
                 {
+                    if(i == 4)
+                    {
+                        TextBlock tb = new TextBlock()
+                        {
+                            FontSize = 11,
+                            Text = (numbers[step] - '0').ToString() + "   ",
+                            VerticalAlignment = VerticalAlignment.Bottom,
+                        };
+                        SpNumbers.Children.Add(tb);
+                    }
                     string CurrentSet = sets[(int)(numbers[step] - '0'), 0].ToString();
                     if ((int)(CurrentSet[i] + 1  - '0') == 1)
                     {
-                        Rectangle rec = new Rectangle()
-                        {
-                            Width = width,
-                            Height = height - 20,
-                            Fill = Brushes.Black,
-                        };
-                        Sp.Children.Add(rec);
+                        rectangle(true, 6);
                     }
                     else
                     {
-                        Rectangle rec = new Rectangle()
-                        {
-                            Width = width,
-                            Height = height - 20,
-                            Fill = Brushes.White,
-                        };
-                        Sp.Children.Add(rec);
+                        rectangle(false, 6);
                     }
                 }
             }
@@ -109,36 +114,71 @@ namespace LabSes1.Pages
             if (step > 7 && step < 14)
             {
                 int number = 7;
-                int width = 2;
-                int height = 100;
 
                 for (int i = 0; i < number; i++)
                 {
+                    if (i == 4)
+                    {
+                        TextBlock tb = new TextBlock()
+                        {
+                            FontSize = 12,
+                            Text = (numbers[step-1] - '0').ToString() + "   ",
+                            VerticalAlignment = VerticalAlignment.Bottom,
+                        };
+                        SpNumbers.Children.Add(tb);
+                    }
+
                     int test = (int)(numbers[step - 2] - '0');
                     string CurrentSet = sets[(int)(numbers[step - 2] - '0'), 1].ToString();
                     if ((int)(CurrentSet[i] + 1 - '0') == 1)
                     {
-                        Rectangle rec = new Rectangle()
-                        {
-                            Width = width,
-                            Height = height - 20,
-                            Fill = Brushes.Black,
-                        };
-                        Sp.Children.Add(rec);
+                        rectangle(true, 6);
                     }
                     else
                     {
-                        Rectangle rec = new Rectangle()
-                        {
-                            Width = width,
-                            Height = height - 20,
-                            Fill = Brushes.White,
-                        };
-                        Sp.Children.Add(rec);
+                        rectangle(false, 6);
                     }
                 }
             }
         }
 
+        void rectangle(bool result, int LongStroke)
+        {
+            int width = 2;
+            int height = 86;
+
+            switch (result)
+            {
+                case true:
+                    Rectangle rec = new Rectangle()
+                    {
+                        Width = width,
+                        Height = height - LongStroke,
+                        Fill = Brushes.Black,
+                        VerticalAlignment = VerticalAlignment.Top
+                    };
+                    Sp.Children.Add(rec);
+                    break;
+                case false:
+                    Rectangle rec1 = new Rectangle()
+                    {
+                        Width = width,
+                        Height = height - LongStroke,
+                        Fill = Brushes.White,
+                        VerticalAlignment = VerticalAlignment.Top
+                    };
+                    Sp.Children.Add(rec1);
+                    break;
+            }
+        }
+
+        private void Print_Click(object sender, RoutedEventArgs e)
+        {
+            PrintDialog dialog = new PrintDialog();
+            if (dialog.ShowDialog() == true)
+            {
+                dialog.PrintVisual(card, "Визитная карточка");
+            }
+        }
     }
 }

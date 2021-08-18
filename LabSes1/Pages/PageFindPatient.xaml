@@ -1,0 +1,26 @@
+﻿<Page x:Class="LabSes1.Pages.PageFindPatient"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:LabSes1.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="400"
+      Title="PageFindPatient">
+
+    <Grid>
+        <TextBox Height="25"
+                   Width="150"
+                   Name="tbSlovo1"/>
+        <TextBox Height="25"
+                   Width="150"
+                   Name="tbSlovo2"
+                   Margin="0 70 0 0"/>
+        <Button Height="25"
+                Width="150"
+                Margin="0 140 0 0"
+                Content="Расчитать расстояние Л."
+                Name="BtnGetLevenshtein"
+                Click="BtnGetLevenshtein_Click"/>
+    </Grid>
+</Page>

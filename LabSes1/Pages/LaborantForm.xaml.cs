@@ -50,5 +50,11 @@ namespace LabSes1.Pages
             MakeOrderWindow newWindow = new MakeOrderWindow();
             newWindow.Show();
         }
+
+        private void BtnFindPatient_Click(object sender, RoutedEventArgs e)
+        {
+            MakeOrderWindow newWindow = new MakeOrderWindow();
+            newWindow.Show();
+        }
     }
 }

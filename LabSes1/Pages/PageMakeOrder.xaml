@@ -11,7 +11,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
-            <RowDefinition Height="80"/>
+            <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
 
         <Grid 
@@ -52,8 +52,7 @@
                      Height="25"
                      Width="180"
                      Name="tbProbirka"
-                     FontSize="16"
-                     />
+                     FontSize="16"/>
             <ComboBox Grid.Column="1"
                       Grid.Row="1"
                       Height="25"
@@ -68,12 +67,23 @@
                     Grid.Column="1"
                     Height="25"
                     Width="180"
-                    Content="Добавить услугу"
+                    Content="Добавить еще услугу"
                     Style="{StaticResource Btn}"
-                    Background="#498C51"/>
+                    Background="#498C51"
+                    Name="BtnAddOneMoreService"
+                    Click="BtnAddOneMoreService_Click"/>
+            <Button Grid.Row="4"
+                    Grid.Column="1"
+                    Height="25"
+                    Width="180"
+                    Content="Распечатать штрих-код"
+                    Style="{StaticResource Btn}"
+                    Background="#498C51"
+                    Name="BtnMakeBarCode"
+                    Click="BtnMakeBarCode_Click"/>
         </Grid>
         <Grid Grid.Row="2"
-              Height="80"
+              Height="60"
               Width="300">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
@@ -94,6 +104,29 @@
                     Name="AddPatient"
                     Click="AddPatient_Click"
                     Style="{StaticResource Btn}"/>
+        </Grid>
+        <Grid HorizontalAlignment="Center"
+              Height="110"
+              Width="222"
+              x:Name="card"
+              Margin="0 270 150 0">
+            <Border BorderBrush="Black"
+                    Background="Black"/>
+            <Border BorderBrush="Black"
+                    Background="White"
+                    Height="108"
+                    Width="220"/>
+            <StackPanel Height="86"
+                    Width="198"
+                    Name="Sp"
+                    Orientation="Horizontal"
+                    Margin="3 0 0 0">
+            </StackPanel>
+            <StackPanel Height="20"
+                    Width="198"
+                    Name="SpNumbers"
+                    Orientation="Horizontal"
+                    Margin="3 84 20 0"/>
         </Grid>
     </Grid>
 </Page>

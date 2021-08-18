@@ -1,5 +1,6 @@
 ﻿using LabSes1.Pages;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace LabSes1.Windows
 {
