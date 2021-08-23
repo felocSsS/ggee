@@ -9,18 +9,6 @@
       Title="PageFindPatient">
 
     <Grid>
-        <TextBox Height="25"
-                   Width="150"
-                   Name="tbSlovo1"/>
-        <TextBox Height="25"
-                   Width="150"
-                   Name="tbSlovo2"
-                   Margin="0 70 0 0"/>
-        <Button Height="25"
-                Width="150"
-                Margin="0 140 0 0"
-                Content="Расчитать расстояние Л."
-                Name="BtnGetLevenshtein"
-                Click="BtnGetLevenshtein_Click"/>
+        
     </Grid>
 </Page>

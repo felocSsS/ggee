@@ -23,6 +23,8 @@ namespace LabSes1.Pages
         public PageFindPatient()
         {
             InitializeComponent();
+            tbSlovo1.Text = "Арестант";
+            tbSlovo2.Text = "Дагестан";
         }
 
         private void BtnGetLevenshtein_Click(object sender, RoutedEventArgs e)
@@ -30,20 +32,7 @@ namespace LabSes1.Pages
             string Slovo1 = tbSlovo1.Text;
             string Slovo2 = tbSlovo2.Text;
 
-            int Levenshtein = 0;
-            /*for (int i = 0; i < tbSlovo1.Text.Length; i++)
-            {
-                if(Slovo1[i] == Slovo2[i])
-                {
-                    Levenshtein = Levenshtein + 0;
-                }
-                else
-                {
-                    Levenshtein = Levenshtein + 1;
-                }
-            }
-            MessageBox.Show(Levenshtein.ToString());*/
-            Int32 levenshtein(String a, String b)
+            int levenshtein(String a, String b)
             {
                 if (string.IsNullOrEmpty(a))
                 {
@@ -62,32 +51,38 @@ namespace LabSes1.Pages
                     }
                     return 0;
                 }
-                Int32 cost;
-                Int32[,] d = new int[a.Length + 1, b.Length + 1];
-                Int32 min1;
-                Int32 min2;
-                Int32 min3;
-                for (Int32 i = 0; i <= d.GetUpperBound(0); i += 1)
-                {
-                    d[i, 0] = i;
-                }
-                for (Int32 i = 0; i <= d.GetUpperBound(1); i += 1)
-                {
-                    d[0, i] = i;
-                }
-                for (Int32 i = 1; i <= d.GetUpperBound(0); i += 1)
-                {
-                    for (Int32 j = 1; j <= d.GetUpperBound(1); j += 1)
-                    {
-                        cost = Convert.ToInt32(!(a[i - 1] == b[j - 1]));
 
-                        min1 = d[i - 1, j] + 1;
-                        min2 = d[i, j - 1] + 1;
-                        min3 = d[i - 1, j - 1] + cost;
-                        d[i, j] = Math.Min(Math.Min(min1, min2), min3);
+                int[,] mas = new int[a.Length + 1, b.Length + 1];
+                int min1 = 0;
+                int min2 = 0;
+                int min3 = 0;
+                
+                for (int i = 0; i <= mas.GetUpperBound(0); i += 1)
+                {
+                    mas[i, 0] = i;
+                }
+                for (int i = 0; i <= mas.GetUpperBound(1); i += 1)
+                {
+                    mas[0, i] = i;
+                }
+                for (int i = 1; i <= mas.GetUpperBound(0); i += 1)
+                {
+                    for (int j = 1; j <= mas.GetUpperBound(1); j += 1)
+                    {
+                        if (a[i-1] == b[j-1])
+                        {
+                            min3 = mas[i - 1, j - 1];
+                        }
+                        else
+                        {
+                            min1 = mas[i - 1, j] + 1;
+                            min2 = mas[i, j - 1] + 1;
+                            min3 = mas[i - 1, j - 1] + 1;
+                        }
+                        mas[i, j] = Math.Min(Math.Min(min1, min2), min3);
                     }
                 }
-                return d[d.GetUpperBound(0), d.GetUpperBound(1)];
+                return mas[mas.GetUpperBound(0), mas.GetUpperBound(1)];
             }
             MessageBox.Show(levenshtein(Slovo1, Slovo2).ToString()); 
         }

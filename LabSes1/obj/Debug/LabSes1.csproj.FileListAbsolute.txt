@@ -185,3 +185,5 @@ C:\Users\Admin\Downloads\ggee\LabSes1\obj\Debug\LabSes1.Properties.Resources.res
 C:\Users\Admin\Downloads\ggee\LabSes1\obj\Debug\LabSes1.csproj.GenerateResource.cache
 C:\Users\Admin\Downloads\ggee\LabSes1\obj\Debug\LabSes1.csproj.CoreCompileInputs.cache
 C:\Users\Admin\Downloads\ggee\LabSes1\obj\Debug\LabSes1.csproj.CopyComplete
+D:\Programming\Lab\ggee\LabSes1\obj\Debug\Pages\PageFindPatient.g.cs
+D:\Programming\Lab\ggee\LabSes1\obj\Debug\Pages\PageFindPatient.baml
