@@ -5,10 +5,129 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:LabSes1.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="400"
+      d:DesignHeight="450" d:DesignWidth="800"
       Title="PageFindPatient">
 
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="8*"/>
+            <ColumnDefinition Width="10*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="9*"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0"
+              Width="350"
+              Height="300"
+              VerticalAlignment="Top"
+              Margin="0 20 0 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Height="25"
+                       Text="ФИО: "
+                       TextAlignment="Right"
+                       FontSize="18"/>
+            <TextBlock Height="25"
+                       Text="Дата рождения: "
+                       TextAlignment="Right"
+                       FontSize="18"
+                       Grid.Column="0"
+                       Grid.Row="1"/>
+            <TextBlock Height="25"
+                       Text="Паспорт:   "
+                       TextAlignment="Right"
+                       FontSize="18"
+                       Grid.Column="0"
+                       Grid.Row="2"/>
+            <TextBlock Height="25"
+                       Text="Телефон: "
+                       TextAlignment="Right"
+                       FontSize="18"
+                       Grid.Column="0"
+                       Grid.Row="3"/>
+            <TextBlock Height="25"
+                       Text="Email: "
+                       TextAlignment="Right"
+                       FontSize="18"
+                       Grid.Column="0"
+                       Grid.Row="4"/>
+            <TextBlock Height="25"
+                       Text="Номер страхования:   "
+                       TextAlignment="Right"
+                       FontSize="15"
+                       Grid.Column="0"
+                       Grid.Row="5"/>
+            <TextBox Grid.Column="1"
+                     Grid.Row="0"
+                     Height="25"
+                     Width="180"
+                     Name="tbName"
+                     FontSize="16"/>
+            <TextBox Grid.Column="1"
+                     Grid.Row="1"
+                     Height="25"
+                     Width="180"
+                     Name="tbBirthday"
+                     FontSize="16"/>
+            <TextBox Grid.Column="1"
+                     Grid.Row="2"
+                     Height="25"
+                     Width="180"
+                     Name="tbPassport"
+                     FontSize="16"/>
+            <TextBox Grid.Column="1"
+                     Grid.Row="4"
+                     Height="25"
+                     Width="180"
+                     Name="tbEmail"
+                     FontSize="16"/>
+            <TextBox Grid.Column="1"
+                     Grid.Row="5"
+                     Height="25"
+                     Width="180"
+                     Name="tbNumberStrazovania"
+                     FontSize="16"/>
+            <TextBox Grid.Column="1"
+                     Grid.Row="3"
+                     Height="25"
+                     Width="180"
+                     Name="tbPhone"
+                     FontSize="16"/>
+        </Grid>
+        <Grid Grid.Row="2"
+              Height="80"
+              Width="300">
+            <Button Background="DodgerBlue"
+                    Height="40"
+                    Width="130"
+                    Content="Найти пациента"
+                    Name="btnFindPatient"
+                    Click="btnFindPatient_Click"
+                    Style="{StaticResource Btn}"/>
+        </Grid>
+        <DataGrid Grid.Column="1"
+                  Grid.RowSpan="2"
+                  CanUserSortColumns="True"
+                  AutoGenerateColumns="False"
+                  VerticalScrollBarVisibility="Auto"
+                  IsReadOnly="True"
+                  Name="dtPatientList">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Пациент" 
+                                    Width="1*"
+                                    Binding="{Binding Name}"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Page>
