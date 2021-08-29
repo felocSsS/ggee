@@ -1,4 +1,5 @@
 ﻿using LabSes1.Pages;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -24,6 +25,18 @@ namespace LabSes1.Windows
         private void BtnHideApp_Click(object sender, RoutedEventArgs e)
         {
             this.WindowState = WindowState.Minimized;
+        }
+
+        private void Grid_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            try
+            {
+                this.DragMove();
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+            }
         }
     }
 }

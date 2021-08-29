@@ -125,8 +125,18 @@
                   Name="dtPatientList">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Пациент" 
-                                    Width="1*"
+                                    Width="*"
                                     Binding="{Binding Name}"/>
+                <DataGridTemplateColumn Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Name="BtnSelectPatient"
+                                    Click="BtnSelectPatient_Click"
+                                    Content="Расчитать стоимость"
+                                    Style="{StaticResource Btn}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

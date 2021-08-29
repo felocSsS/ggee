@@ -1,4 +1,7 @@
 ﻿using LabSes1.Classes;
+using LabSes1.DB;
+using LabSes1.Windows;
+using System;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -12,6 +15,7 @@ namespace LabSes1.Pages
     /// </summary>
     public partial class PageMakeOrder : Page
     {
+        private int NumberOfOrder = 0;
         public PageMakeOrder()
         {
             InitializeComponent();
@@ -24,50 +28,40 @@ namespace LabSes1.Pages
             CmbService.ItemsSource = DataBase.db.Service.ToList();
         }
 
-        private void AddPatient_Click(object sender, RoutedEventArgs e)
-        {
-            FrameClass.FrmMakeOrder.Navigate(new PageAddPacient());
-        }
-
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                DB.Order order = new DB.Order()
-                {
-                    IdLaboratoryWorker = (int)UserID.ID,
-                    IdPatient = (int)CmbName.SelectedValue,
-                    Status = false,
-                    IdService = (int)CmbService.SelectedValue,
-                };
-                DataBase.db.Order.Add(order);
-                DataBase.db.SaveChanges();
-                MessageBox.Show("Заказ сделан!", "Успех", MessageBoxButton.OK);
-                tbProbirka.Text = "";
-                CmbName.SelectedValue = null;
-                CmbService.SelectedValue = null;
-            }
-            catch (System.Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
+            MakeOrder(true);
+/*            tbProbirka.Text = "";
+            CmbName.SelectedValue = null;
+            CmbService.SelectedValue = null;*/
+            FrameClass.FrmMakeOrder.Navigate(new GeneratedOrder(NumberOfOrder));
         }
 
         private void BtnAddOneMoreService_Click(object sender, RoutedEventArgs e)
         {
+            MakeOrder(false);
+            CmbService.SelectedValue = null;
+        }
+
+        private void MakeOrder(bool NotOneMoreService)
+        {
+            var LastOrderFromThisPatient = DataBase.db.Order.Where(x => x.IdPatient == (int)CmbName.SelectedValue).ToList().LastOrDefault();
+
+            int NumberOfOrder = LastOrderFromThisPatient == null ? (NumberOfOrder = 1) : (NumberOfOrder = (Convert.ToInt32(LastOrderFromThisPatient.NumberOfOrder) + Convert.ToInt32(NotOneMoreService)));
+
             try
             {
                 DB.Order order = new DB.Order()
                 {
                     IdLaboratoryWorker = (int)UserID.ID,
                     IdPatient = (int)CmbName.SelectedValue,
-                    Status = false,
+                    IdStatus = 1,
                     IdService = (int)CmbService.SelectedValue,
+                    NumberOfTestTube = Convert.ToInt32(tbProbirka.Text),
+                    NumberOfOrder = NumberOfOrder
                 };
                 DataBase.db.Order.Add(order);
                 DataBase.db.SaveChanges();
-                MessageBox.Show("Услуга добавлена к заказу!", "Успех", MessageBoxButton.OK);
-                CmbService.SelectedValue = null;
             }
             catch (System.Exception ex)
             {
@@ -95,15 +89,15 @@ namespace LabSes1.Pages
         }
 
         private int[,] sets = new int[10, 2] { { 10001101, 10100111}, //0
-                                                { 10011001, 10110011}, //1
-                                                { 10010011, 10011011}, //2
-                                                { 10111101, 10100001}, //3
-                                                { 10100011, 10011101}, //4
-                                                { 10110001, 10111001}, //5
-                                                { 10101111, 10000101}, //6
-                                                { 10111011, 10010001}, //7
-                                                { 10110111, 10001001}, //8
-                                                { 10001011, 10010111} }; //9
+                                               { 10011001, 10110011}, //1
+                                               { 10010011, 10011011}, //2
+                                               { 10111101, 10100001}, //3
+                                               { 10100011, 10011101}, //4
+                                               { 10110001, 10111001}, //5
+                                               { 10101111, 10000101}, //6
+                                               { 10111011, 10010001}, //7
+                                               { 10110111, 10001001}, //8
+                                               { 10001011, 10010111} }; //9
 
         private int[] StartAndEndРatch = new int[] { 0, 1, 0, 1, 0 };
 
@@ -193,8 +187,6 @@ namespace LabSes1.Pages
                         };
                         SpNumbers.Children.Add(tb);
                     }
-
-                    int test = (int)(numbers[step - 2] - '0');
                     string CurrentSet = sets[(int)(numbers[step - 2] - '0'), 1].ToString();
                     if ((int)(CurrentSet[i] + 1 - '0') == 1)
                     {
@@ -236,6 +228,10 @@ namespace LabSes1.Pages
                     Sp.Children.Add(rec1);
                     break;
             }
+        }
+        private void AddPatient_Click(object sender, RoutedEventArgs e)
+        {
+            FrameClass.FrmMakeOrder.Navigate(new PageAddPacient());
         }
     }
 }

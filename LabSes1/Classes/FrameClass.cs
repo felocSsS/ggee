@@ -7,6 +7,5 @@ namespace LabSes1.Classes
         public static Frame frm;
 
         public static Frame FrmMakeOrder;
-
     }
 }

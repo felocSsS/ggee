@@ -40,7 +40,7 @@ namespace LabSes1.Pages
             }
             else
             {
-
+                MessageBox.Show("Заполните все поля!", "Ошибка", MessageBoxButton.OK);
             }
         }
 
@@ -116,6 +116,11 @@ namespace LabSes1.Pages
                 }
             }
             return mas[mas.GetUpperBound(0), mas.GetUpperBound(1)];
+        }
+
+        private void BtnSelectPatient_Click(object sender, RoutedEventArgs e)
+        {
+            /*AppFrame.frameMain.Navigate(new PageJournalStudent((sender as Button).DataContext as Student));*/
         }
     }
 }

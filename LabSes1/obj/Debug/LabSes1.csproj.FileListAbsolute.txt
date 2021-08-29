@@ -187,3 +187,5 @@ C:\Users\Admin\Downloads\ggee\LabSes1\obj\Debug\LabSes1.csproj.CoreCompileInputs
 C:\Users\Admin\Downloads\ggee\LabSes1\obj\Debug\LabSes1.csproj.CopyComplete
 D:\Programming\Lab\ggee\LabSes1\obj\Debug\Pages\PageFindPatient.g.cs
 D:\Programming\Lab\ggee\LabSes1\obj\Debug\Pages\PageFindPatient.baml
+D:\Programming\Lab\ggee\LabSes1\obj\Debug\Pages\GeneratedOrder.g.cs
+D:\Programming\Lab\ggee\LabSes1\obj\Debug\Pages\GeneratedOrder.baml

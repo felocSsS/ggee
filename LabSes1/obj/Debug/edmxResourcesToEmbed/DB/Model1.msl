@@ -14,8 +14,10 @@
     <EntitySetMapping Name="Order">
       <EntityTypeMapping TypeName="LabSes1Model.Order">
         <MappingFragment StoreEntitySet="Order">
+          <ScalarProperty Name="NumberOfTestTube" ColumnName="NumberOfTestTube" />
+          <ScalarProperty Name="NumberOfOrder" ColumnName="NumberOfOrder" />
           <ScalarProperty Name="IdService" ColumnName="IdService" />
-          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="IdStatus" ColumnName="IdStatus" />
           <ScalarProperty Name="IdPatient" ColumnName="IdPatient" />
           <ScalarProperty Name="IdLaboratoryWorker" ColumnName="IdLaboratoryWorker" />
           <ScalarProperty Name="Id" ColumnName="Id" />
@@ -38,12 +40,28 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Role">
+      <EntityTypeMapping TypeName="LabSes1Model.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Service">
       <EntityTypeMapping TypeName="LabSes1Model.Service">
         <MappingFragment StoreEntitySet="Service">
           <ScalarProperty Name="AverageDeviation" ColumnName="AverageDeviation" />
           <ScalarProperty Name="Deadline" ColumnName="Deadline" />
           <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Status">
+      <EntityTypeMapping TypeName="LabSes1Model.Status">
+        <MappingFragment StoreEntitySet="Status">
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>

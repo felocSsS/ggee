@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\Programming\Lab\ggee\LabSes1\App.xaml
-91747243907
+10-802436057
 21097632036
-271751426065
-18-127961324
-Pages\barcode.xaml;Pages\PageFindPatient.xaml;Windows\MainWindow.xaml;Pages\HistoryaPage.xaml;Pages\LaborantForm.xaml;Pages\LoginPage.xaml;Pages\PageAddPacient.xaml;Pages\PageMakeOrder.xaml;Windows\MakeOrderWindow.xaml;
+30-105879022
+19-1378585510
+Pages\barcode.xaml;Pages\GeneratedOrder.xaml;Pages\PageFindPatient.xaml;Windows\MainWindow.xaml;Pages\HistoryaPage.xaml;Pages\LaborantForm.xaml;Pages\LoginPage.xaml;Pages\PageAddPacient.xaml;Pages\PageMakeOrder.xaml;Windows\MakeOrderWindow.xaml;
 
 True
 

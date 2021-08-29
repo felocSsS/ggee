@@ -92,10 +92,16 @@
             <Button Background="DodgerBlue"
                     Height="40"
                     Width="130"
-                    Content="Сохранить заказ"
                     Name="btnSave"
                     Click="btnSave_Click"
-                    Style="{StaticResource Btn}"/>
+                    Style="{StaticResource Btn}"
+                    >
+                <Button.Content>
+                    <TextBlock Text="Сохранить заказ и распечатать"
+                               TextWrapping="Wrap"
+                               TextAlignment="Center"/>
+                </Button.Content>
+            </Button>
             <Button Background="Red"
                     Height="40"
                     Width="130"

@@ -1,0 +1,84 @@
+﻿<Page x:Class="LabSes1.Pages.GeneratedOrder"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:LabSes1.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="500"
+      Title="GeneratedOrder">
+
+    <Grid >
+        <ScrollViewer VerticalScrollBarVisibility="Visible"
+                      x:Name="SV">
+            <Grid x:Name="Grid">
+                <TextBlock Text="Заказ №"
+                           FontSize="22"
+                           Margin="20 0 0 0"
+                           VerticalAlignment="Top"
+                           HorizontalAlignment="Left"/>
+                <TextBlock Text="Здесь будет ФИО "
+                           FontSize="22"
+                           Margin="20 50 0 0"
+                           VerticalAlignment="Top"
+                           HorizontalAlignment="Left"/>
+                <TextBlock Text="здессь будет Дата рождения "
+                           FontSize="22"
+                           Margin="20 100 0 0"
+                           VerticalAlignment="Top"
+                           HorizontalAlignment="Left"/>
+                <TextBlock Text="Здесь будет номер страхового полиса"
+                           FontSize="18"
+                           Margin="20 150 0 0"
+                           VerticalAlignment="Top"
+                           HorizontalAlignment="Left"/>
+                <Button Content="Распечатать"
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Right"
+                        Margin="20 20 0 0"
+                        FontSize="22"
+                        Style="{StaticResource Btn}"
+                        Name="BtnPrint"
+                        Click="BtnPrint_Click"/>
+                <Border Margin="20 190 0 0"
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Left"
+                        BorderThickness="2"
+                        CornerRadius="3"
+                        BorderBrush="Black">
+                    <Grid Name="GridServices">
+                        <TextBlock Text="Номер пробирки   "
+                                   FontSize="18"/>
+                        <!--Макет 1 строчки заказа-->
+                        <!--<TextBlock Text="1"
+                                   FontSize="18"
+                                   VerticalAlignment="Top"
+                                   HorizontalAlignment="Left"
+                                   Margin="0 30 0 0"/>
+                        <TextBlock Text="| Обследование"
+                                   FontSize="18"
+                                   VerticalAlignment="Top"
+                                   HorizontalAlignment="Left"
+                                   Margin="20 30 0 0"/>
+                        <TextBlock Text="| 10000   "
+                                   FontSize="18"
+                                   VerticalAlignment="Top"
+                                   HorizontalAlignment="Left"
+                                   Margin="390 30 0 0"/>-->
+                        <TextBlock Text="Дата заказа: "
+                                   FontSize="16"
+                                   VerticalAlignment="Bottom"
+                                   HorizontalAlignment="Right"
+                                   Margin="0 0 0 20"/>
+                        <TextBlock Text="Итоговая цена: "
+                                   FontSize="22"
+                                   VerticalAlignment="Bottom"
+                                   HorizontalAlignment="Right"
+                                   Margin="0 80 0 0"/>
+
+                    </Grid>
+                </Border>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</Page>

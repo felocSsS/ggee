@@ -82,7 +82,7 @@ namespace LabSes1.Pages
 
         private void BtnSeebarcode_Click(object sender, RoutedEventArgs e)
         {
-            FrameClass.frm.Navigate(new PageFindPatient());
+            /*FrameClass.frm.Navigate(new GeneratedOrder());*/
         }
     }
 }
