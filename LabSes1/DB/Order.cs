@@ -28,7 +28,7 @@ public partial class Order
 
     public Nullable<int> IdService { get; set; }
 
-    public Nullable<int> NumberOfOrder { get; set; }
+    public string NumberOfOrder { get; set; }
 
     public Nullable<int> NumberOfTestTube { get; set; }
 

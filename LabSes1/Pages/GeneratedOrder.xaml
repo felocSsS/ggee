@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:LabSes1.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="500"
+      d:DesignHeight="450" d:DesignWidth="400"
       Title="GeneratedOrder">
 
     <Grid >
@@ -16,22 +16,26 @@
                            FontSize="22"
                            Margin="20 0 0 0"
                            VerticalAlignment="Top"
-                           HorizontalAlignment="Left"/>
+                           HorizontalAlignment="Left"
+                           Name="TbOrder"/>
                 <TextBlock Text="Здесь будет ФИО "
                            FontSize="22"
                            Margin="20 50 0 0"
                            VerticalAlignment="Top"
-                           HorizontalAlignment="Left"/>
+                           HorizontalAlignment="Left"
+                           Name="TbName"/>
                 <TextBlock Text="здессь будет Дата рождения "
                            FontSize="22"
                            Margin="20 100 0 0"
                            VerticalAlignment="Top"
-                           HorizontalAlignment="Left"/>
+                           HorizontalAlignment="Left"
+                           Name="TbBirthday"/>
                 <TextBlock Text="Здесь будет номер страхового полиса"
                            FontSize="18"
                            Margin="20 150 0 0"
                            VerticalAlignment="Top"
-                           HorizontalAlignment="Left"/>
+                           HorizontalAlignment="Left"
+                           Name="TbNumberOfInsuranceNumber"/>
                 <Button Content="Распечатать"
                         VerticalAlignment="Top"
                         HorizontalAlignment="Right"
@@ -48,7 +52,8 @@
                         BorderBrush="Black">
                     <Grid Name="GridServices">
                         <TextBlock Text="Номер пробирки   "
-                                   FontSize="18"/>
+                                   FontSize="18"
+                                   Name="TbNumberOfTestTube"/>
                         <!--Макет 1 строчки заказа-->
                         <!--<TextBlock Text="1"
                                    FontSize="18"
@@ -64,18 +69,19 @@
                                    FontSize="18"
                                    VerticalAlignment="Top"
                                    HorizontalAlignment="Left"
-                                   Margin="390 30 0 0"/>-->
+                                   Margin="290 30 0 0"/>-->
                         <TextBlock Text="Дата заказа: "
                                    FontSize="16"
                                    VerticalAlignment="Bottom"
                                    HorizontalAlignment="Right"
-                                   Margin="0 0 0 20"/>
+                                   Margin="0 0 0 0"
+                                   Name="TbDateOfOrder"/>
                         <TextBlock Text="Итоговая цена: "
                                    FontSize="22"
                                    VerticalAlignment="Bottom"
                                    HorizontalAlignment="Right"
-                                   Margin="0 80 0 0"/>
-
+                                   Margin="0 80 0 0"
+                                   Name="TbTotalPrice"/>
                     </Grid>
                 </Border>
             </Grid>

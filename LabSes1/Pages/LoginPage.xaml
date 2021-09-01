@@ -66,7 +66,7 @@
                 Background="#498C51"
                 Name="BtnSeeHistory"
                 Click="BtnSeeHistory_Click"/>
-        <Button HorizontalAlignment="Right"
+        <!--<Button HorizontalAlignment="Right"
                 Height="35"
                 Width="250"
                 Content="сгенерировать штрих-код"
@@ -75,6 +75,6 @@
                 Style="{StaticResource Btn}"
                 Background="#498C51"
                 Name="BtnSeebarcode"
-                Click="BtnSeebarcode_Click"/>
+                Click="BtnSeebarcode_Click"/>-->
     </Grid>
 </Page>

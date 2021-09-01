@@ -30,38 +30,73 @@ namespace LabSes1.Pages
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            MakeOrder(true);
-/*            tbProbirka.Text = "";
-            CmbName.SelectedValue = null;
-            CmbService.SelectedValue = null;*/
-            FrameClass.FrmMakeOrder.Navigate(new GeneratedOrder(NumberOfOrder));
+            if(DataBase.db.Order.Where(x => x.NumberOfTestTube == Convert.ToInt32(tbProbirka.Text)) == null && tbProbirka.Text.Length == 13)
+            {
+                MakeOrder();
+                tbProbirka.Text = "";
+                CmbName.SelectedValue = null;
+                CmbService.SelectedValue = null;
+                FrameClass.FrmMakeOrder.Navigate(new GeneratedOrder(NumberOfOrder));
+            }
         }
 
         private void BtnAddOneMoreService_Click(object sender, RoutedEventArgs e)
         {
-            MakeOrder(false);
-            CmbService.SelectedValue = null;
+            if (DataBase.db.Order.Where(x => x.NumberOfTestTube == Convert.ToInt32(tbProbirka.Text)) == null && tbProbirka.Text.Length == 13)
+            {
+                MakeOrder();
+                CmbService.SelectedValue = null;
+            }
+            else if(DataBase.db.Order.Where(x => x.NumberOfTestTube == Convert.ToInt32(tbProbirka.Text)) != null)
+            {
+                MessageBox.Show("Такой код пробирки уже используется, используйте другой", "Ошибка", MessageBoxButton.OK);
+            }
+            else if(tbProbirka.Text.Length != 13)
+            {
+                MessageBox.Show("Код должен состоять из 13 цифр!", "Ошибка", MessageBoxButton.OK);
+            }
         }
 
-        private void MakeOrder(bool NotOneMoreService)
+        private void MakeOrder()
         {
             var LastOrderFromThisPatient = DataBase.db.Order.Where(x => x.IdPatient == (int)CmbName.SelectedValue).ToList().LastOrDefault();
 
-            int NumberOfOrder = LastOrderFromThisPatient == null ? (NumberOfOrder = 1) : (NumberOfOrder = (Convert.ToInt32(LastOrderFromThisPatient.NumberOfOrder) + Convert.ToInt32(NotOneMoreService)));
+            if(LastOrderFromThisPatient == null)
+            {
+                NumberOfOrder = 1;
+            }
+            else
+            {
+                if(NumberOfOrder != Convert.ToInt32(LastOrderFromThisPatient.NumberOfOrder))
+                {
+                    NumberOfOrder = Convert.ToInt32(LastOrderFromThisPatient.NumberOfOrder) + 1;
+                }
+                else
+                {
+                    NumberOfOrder += 0;
+                }
+            }
 
             try
             {
-                DB.Order order = new DB.Order()
+                if (CmbService.SelectedValue == null)
                 {
-                    IdLaboratoryWorker = (int)UserID.ID,
-                    IdPatient = (int)CmbName.SelectedValue,
-                    IdStatus = 1,
-                    IdService = (int)CmbService.SelectedValue,
-                    NumberOfTestTube = Convert.ToInt32(tbProbirka.Text),
-                    NumberOfOrder = NumberOfOrder
-                };
-                DataBase.db.Order.Add(order);
-                DataBase.db.SaveChanges();
+                    NumberOfOrder += 0;
+                }
+                else
+                {
+                    DB.Order order = new DB.Order()
+                    {
+                        IdLaboratoryWorker = (int)UserID.ID,
+                        IdPatient = (int)CmbName.SelectedValue,
+                        IdStatus = 1,
+                        IdService = (int)CmbService.SelectedValue,
+                        NumberOfTestTube = Convert.ToInt32(tbProbirka.Text),
+                        NumberOfOrder = NumberOfOrder.ToString()
+                    };
+                    DataBase.db.Order.Add(order);
+                    DataBase.db.SaveChanges();
+                }
             }
             catch (System.Exception ex)
             {

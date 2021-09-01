@@ -52,7 +52,7 @@ namespace LabSes1.Pages
             {
                 int CurrentPatient = levenshtein(tbName.Text, Patient.Name);
 
-                string Date = Patient.Birthday.ToString().Substring(0, Patient.Birthday.ToString().Length - 8);
+                string Date = Patient.Birthday.ToString().Substring(0, Patient.Birthday.ToString().Length - 8) ;
 
                 if (CurrentPatient <= 3 && Date == tbBirthday.Text && tbEmail.Text == Patient.Email &&
                     Convert.ToInt32(tbNumberStrazovania.Text) == Patient.InsuranceNumber && 

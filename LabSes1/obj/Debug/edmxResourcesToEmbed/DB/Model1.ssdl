@@ -18,7 +18,7 @@
     <Property Name="IdPatient" Type="int" />
     <Property Name="IdStatus" Type="int" />
     <Property Name="IdService" Type="int" />
-    <Property Name="NumberOfOrder" Type="int" />
+    <Property Name="NumberOfOrder" Type="nvarchar" MaxLength="50" />
     <Property Name="NumberOfTestTube" Type="int" />
   </EntityType>
   <EntityType Name="Patient">

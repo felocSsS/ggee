@@ -81,7 +81,6 @@ D:\Programming\Lab\ggee\LabSes1\bin\Debug\EntityFramework.xml
 D:\Programming\Lab\ggee\LabSes1\bin\Debug\EntityFramework.SqlServer.xml
 D:\Programming\Lab\ggee\LabSes1\bin\Debug\ru\EntityFramework.resources.dll
 D:\Programming\Lab\ggee\LabSes1\obj\Debug\LabSes1.csproj.AssemblyReference.cache
-D:\Programming\Lab\ggee\LabSes1\obj\Debug\Pages\barcode.g.cs
 D:\Programming\Lab\ggee\LabSes1\obj\Debug\Windows\MainWindow.g.cs
 D:\Programming\Lab\ggee\LabSes1\obj\Debug\Pages\HistoryaPage.g.cs
 D:\Programming\Lab\ggee\LabSes1\obj\Debug\Pages\LaborantForm.g.cs
@@ -94,7 +93,6 @@ D:\Programming\Lab\ggee\LabSes1\obj\Debug\LabSes1_Content.g.cs
 D:\Programming\Lab\ggee\LabSes1\obj\Debug\LabSes1_MarkupCompile.cache
 D:\Programming\Lab\ggee\LabSes1\obj\Debug\LabSes1_MarkupCompile.lref
 D:\Programming\Lab\ggee\LabSes1\obj\Debug\App.baml
-D:\Programming\Lab\ggee\LabSes1\obj\Debug\Pages\barcode.baml
 D:\Programming\Lab\ggee\LabSes1\obj\Debug\Windows\MainWindow.baml
 D:\Programming\Lab\ggee\LabSes1\obj\Debug\Pages\HistoryaPage.baml
 D:\Programming\Lab\ggee\LabSes1\obj\Debug\Pages\LaborantForm.baml

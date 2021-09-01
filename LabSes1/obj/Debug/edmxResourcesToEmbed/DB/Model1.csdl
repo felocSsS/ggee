@@ -53,7 +53,7 @@
     <Property Name="IdPatient" Type="Int32" />
     <Property Name="IdStatus" Type="Int32" />
     <Property Name="IdService" Type="Int32" />
-    <Property Name="NumberOfOrder" Type="Int32" />
+    <Property Name="NumberOfOrder" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="NumberOfTestTube" Type="Int32" />
     <NavigationProperty Name="Patient" Relationship="LabSes1Model.FK_Order_Patient" FromRole="Order" ToRole="Patient" />
     <NavigationProperty Name="Service" Relationship="LabSes1Model.FK_Order_Service" FromRole="Order" ToRole="Service" />
